@@ -1,6 +1,7 @@
 # Python UCAS课表 (.ics) 生成
 
-根据项目（https://github.com/junyilou/python-ical-timetable.git），针对UCAS雁西湖校区进行适配性工作。支持根据教务系统界面导出的Html文件生成ics日程文件。
+根据项目[Python 大学生课表 (.ics) 生成](https://github.com/junyilou/python-ical-timetable)
+针对UCAS雁西湖校区进行适配性工作。简化流程，直接根据教务系统界面导出的Html文件生成ics日程文件。
 
 ## 简介
 
