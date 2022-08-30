@@ -1,5 +1,4 @@
 name: Publish Python 🐍 distributions 📦 to PyPI and TestPyPI
-
 on: push
 jobs:
   build-n-publish:
@@ -19,7 +18,6 @@ jobs:
         --user
     - name: Build a binary wheel and a source tarball
       run: >-
-        python -m
         pyinstaller
         -F -w timetable.py
 
