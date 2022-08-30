@@ -19,7 +19,7 @@ jobs:
     - name: Package
       run: >-
         pyinstaller
-        -F -w main.py
+        -F -w UCAS课程表小工具.py
 
     - name: Generate Release Tag
       id: tag
@@ -34,4 +34,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
-        files: dist/main.exe
+        files: dist/UCAS课程表小工具.exe
