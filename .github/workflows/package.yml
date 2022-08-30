@@ -19,7 +19,7 @@ jobs:
     - name: Package
       run: >-
         pyinstaller
-        -F -w timetable.py
+        -F -w main.py
 
     - name: Generate Release Tag
       id: tag
@@ -34,5 +34,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
-        files: dist/timetable.exe
-
+        files: dist/main.exe

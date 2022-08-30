@@ -61,3 +61,5 @@ iCal += "END:VCALENDAR"
 
 with open(f"{school.name}.ics", "w", encoding = "utf-8") as w:
 	w.write(iCal)
+
+print('导出成功')
