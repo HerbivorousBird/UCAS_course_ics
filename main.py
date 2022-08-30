@@ -6,7 +6,6 @@ from UCAS import classes as cls
 
 classes = cls().get_classes()
 
-
 classTime = [None, *school.classTime]
 weeks = [None]
 starterDay = datetime(*school.starterDay)
