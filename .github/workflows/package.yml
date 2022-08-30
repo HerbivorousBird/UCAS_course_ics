@@ -1,8 +1,8 @@
-name: Publish Python 🐍 distributions 📦 to PyPI and TestPyPI
+name: Package and Publish
 on: push
 jobs:
   build-n-publish:
-    name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
+    name: Package and Publish
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@master
@@ -16,18 +16,23 @@ jobs:
         pip install -r
         requirements.txt
         --user
-    - name: Build a binary wheel and a source tarball
+    - name: Package
       run: >-
         pyinstaller
         -F -w timetable.py
 
-    - name: Create GitHub release
-      uses: marvinpinto/action-automatic-releases@latest
+    - name: Generate Release Tag
+      id: tag
+      run: |
+        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
+        echo "::set-output name=status::success"
+
+    - name: Publish to GitHub Release
+      uses: softprops/action-gh-release@v1
+      if: steps.tag.outputs.status == 'success' && !cancelled()
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: ${{ env.ReleaseVersion }}
-        title: ${{ env.ReleaseVersion }}
-        prerelease: false
-        files: |
-          dist/timetable.exe
+        tag_name: ${{ steps.tag.outputs.release_tag }}
+        files: dist/timetable.exe
 
