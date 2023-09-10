@@ -25,7 +25,7 @@ iCalendar 是广泛使用的日历数据交换标准，在诸如 Apple 日历、
 
 ### 运行程序
 
-#### windows用户
+#### windows用户（推荐）
 
 windows用户下载项目release打包好的exe文件，然后将上一步的html文件拷贝到exe同级目录双击运行后同目录下生成的 `UCAS.ics` 即为课程表日历订阅文件
 
@@ -38,7 +38,7 @@ windows用户下载项目release打包好的exe文件，然后将上一步的htm
 - 然后运行：
 
 ```
-python timetable.py
+python UCAS课程表小工具.py
 ```
 
 - 同目录下生成的 `UCAS.ics`即为课程表日历订阅文件
